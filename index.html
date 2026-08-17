@@ -7,12 +7,13 @@
   <title>திரு ஆனிலை பாரம்பரிய உணவுகள் | கரூர்</title>
 
   <meta name="description"
-        content="திரு ஆனிலை பாரம்பரிய உணவுகள் – கரூர் கல்யாண பசுபதீஸ்வரர் கோவில் அருகில் பாரம்பரிய தானியங்கள், மூலிகைகள் மற்றும் இயற்கையான பொருட்களால் தயாரிக்கப்படும் ஆரோக்கியமான மாலை நேர உணவுகள் மற்றும் பானங்கள்.">
+    content="திரு ஆனிலை பாரம்பரிய உணவுகள் – கரூர் கல்யாண பசுபதீஸ்வரர் கோவில் அருகில் பாரம்பரிய தானியங்கள், மூலிகைகள் மற்றும் இயற்கையான பொருட்களால் தயாரிக்கப்படும் பாரம்பரிய உணவுகள் மற்றும் பானங்கள்.">
 
-  <meta name="theme-color" content="#102f20">
+  <meta name="theme-color" content="#0b2618">
 
   <meta property="og:title" content="திரு ஆனிலை பாரம்பரிய உணவுகள்">
-  <meta property="og:description" content="பாரம்பரிய சுவை • இயற்கையான பொருட்கள் • ஆரோக்கியமான உணவுகள்">
+  <meta property="og:description"
+    content="பாரம்பரிய சுவை • இயற்கையான பொருட்கள் • ஆரோக்கியமான உணவுகள்">
   <meta property="og:image" content="kovilphoto.jpg">
   <meta property="og:type" content="website">
 
@@ -20,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
-        rel="stylesheet">
+    rel="stylesheet">
 
   <style>
 
@@ -29,33 +30,40 @@
     ========================================================= */
 
     :root {
-      --green-950: #071b12;
+      --green-950: #06160e;
       --green-900: #0b2618;
+      --green-850: #0d2e1d;
       --green-800: #103521;
       --green-700: #17462c;
       --green-600: #21633e;
 
       --gold: #d5ad43;
-      --gold-light: #f4dc8c;
-      --gold-soft: #fff5c9;
+      --gold-light: #f3d986;
+      --gold-soft: #fff6d4;
 
-      --cream: #faf7ef;
-      --cream-dark: #f1ecdf;
+      --cream: #faf8f2;
+      --cream-dark: #eee9dc;
       --white: #ffffff;
 
-      --text: #202720;
-      --muted: #687067;
+      --text: #202820;
+      --muted: #697168;
 
-      --border: rgba(16, 53, 33, 0.12);
+      --border: rgba(16, 53, 33, .11);
 
-      --shadow-sm: 0 8px 25px rgba(8, 28, 18, .06);
-      --shadow-md: 0 18px 45px rgba(8, 28, 18, .11);
-      --shadow-lg: 0 30px 80px rgba(5, 22, 13, .20);
+      --shadow-sm:
+        0 8px 25px rgba(8, 28, 18, .055);
 
-      --radius-lg: 28px;
-      --radius-md: 18px;
+      --shadow-md:
+        0 18px 45px rgba(8, 28, 18, .11);
 
-      --transition: 280ms cubic-bezier(.2,.8,.2,1);
+      --shadow-lg:
+        0 30px 80px rgba(5, 22, 13, .20);
+
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 17px;
+
+      --ease: cubic-bezier(.2, .8, .2, 1);
     }
 
 
@@ -71,7 +79,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 75px;
+      scroll-padding-top: 90px;
     }
 
     body {
@@ -87,41 +95,41 @@
       max-width: 100%;
     }
 
-    button,
-    a {
-      font: inherit;
-    }
-
     a {
       color: inherit;
     }
 
+    button {
+      font: inherit;
+    }
+
 
     /* =========================================================
-       LOADER
+       PAGE LOADER
     ========================================================= */
 
     .loader {
       position: fixed;
       inset: 0;
-      z-index: 9999;
+      z-index: 99999;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
 
       background:
-        radial-gradient(circle at center,
-          #1d5736 0%,
-          #0b2618 55%,
-          #06160e 100%);
+        radial-gradient(
+          circle at center,
+          #1c5736 0%,
+          #0b2618 52%,
+          #06160e 100%
+        );
 
       transition:
         opacity .7s ease,
         visibility .7s ease;
     }
 
-    .loader.hide {
+    .loader.hidden {
       opacity: 0;
       visibility: hidden;
     }
@@ -129,64 +137,68 @@
     .loader-inner {
       text-align: center;
       color: white;
-      animation: loaderPulse 1.8s ease-in-out infinite;
+      animation: loaderFloat 1.8s ease-in-out infinite;
     }
 
     .loader-symbol {
       width: 76px;
       height: 76px;
 
-      margin: auto auto 18px;
-
-      border: 1px solid rgba(213,173,67,.7);
-      border-radius: 50%;
+      margin: 0 auto 18px;
 
       display: grid;
       place-items: center;
+
+      border: 1px solid rgba(213,173,67,.75);
+      border-radius: 50%;
 
       color: var(--gold-light);
       font-size: 30px;
 
       box-shadow:
         0 0 0 8px rgba(213,173,67,.06),
-        0 0 40px rgba(213,173,67,.15);
+        0 0 45px rgba(213,173,67,.16);
     }
 
     .loader-title {
-      font-size: 1.25rem;
-      font-weight: 800;
       color: var(--gold-light);
+      font-size: 1.3rem;
+      font-weight: 800;
     }
 
     .loader-sub {
-      margin-top: 4px;
-      font-size: .8rem;
+      margin-top: 3px;
       opacity: .7;
+      font-size: .78rem;
     }
 
-    @keyframes loaderPulse {
+    @keyframes loaderFloat {
       50% {
-        transform: translateY(-4px);
+        transform: translateY(-5px);
       }
     }
 
 
     /* =========================================================
-       TOP BAR
+       ANNOUNCEMENT
     ========================================================= */
 
     .announcement {
+      position: relative;
+      z-index: 200;
+
+      padding: 8px 14px;
+
       background: var(--green-950);
+
+      border-bottom: 1px solid rgba(213,173,67,.2);
+
       color: var(--gold-light);
 
       text-align: center;
 
-      padding: 8px 14px;
-
       font-size: .82rem;
       font-weight: 700;
-
-      border-bottom: 1px solid rgba(213,173,67,.22);
     }
 
 
@@ -201,33 +213,34 @@
       left: 0;
       right: 0;
 
-      z-index: 100;
+      z-index: 1000;
 
-      padding: 18px 5%;
+      padding: 17px 5%;
     }
 
     .nav-inner {
-      max-width: 1200px;
+      width: min(1200px, 100%);
       margin: auto;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      padding: 10px 14px;
+      padding: 10px 13px;
 
       border: 1px solid rgba(255,255,255,.14);
       border-radius: 18px;
 
-      background: rgba(5, 25, 15, .30);
+      background: rgba(5,25,15,.28);
+
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
 
-      transition: var(--transition);
+      transition: .3s ease;
     }
 
     .navbar.scrolled .nav-inner {
-      background: rgba(8, 30, 19, .88);
+      background: rgba(7,27,18,.91);
       box-shadow: 0 12px 35px rgba(0,0,0,.18);
     }
 
@@ -236,26 +249,26 @@
       align-items: center;
       gap: 10px;
 
-      text-decoration: none;
       color: white;
+      text-decoration: none;
     }
 
     .brand-icon {
       width: 40px;
       height: 40px;
 
-      border: 1px solid rgba(213,173,67,.7);
-      border-radius: 50%;
-
       display: grid;
       place-items: center;
+
+      border: 1px solid rgba(213,173,67,.7);
+      border-radius: 50%;
 
       color: var(--gold-light);
       font-size: 19px;
     }
 
     .brand-text {
-      line-height: 1.15;
+      line-height: 1.1;
     }
 
     .brand-name {
@@ -264,42 +277,49 @@
     }
 
     .brand-small {
+      margin-top: 3px;
+
       color: var(--gold-light);
-      font-size: .67rem;
+
+      font-size: .66rem;
       opacity: .85;
     }
 
     .nav-links {
       display: flex;
-      gap: 6px;
+      align-items: center;
+      gap: 4px;
+
       list-style: none;
     }
 
     .nav-links a {
-      color: rgba(255,255,255,.88);
-      text-decoration: none;
+      display: block;
 
-      padding: 9px 13px;
+      padding: 9px 12px;
 
       border-radius: 10px;
 
-      font-size: .83rem;
+      color: rgba(255,255,255,.88);
+      text-decoration: none;
+
+      font-size: .82rem;
       font-weight: 700;
 
-      transition: var(--transition);
+      transition: .25s ease;
     }
 
     .nav-links a:hover {
-      background: rgba(255,255,255,.1);
+      background: rgba(255,255,255,.09);
       color: var(--gold-light);
     }
 
-    .nav-map {
+    .nav-location {
       background: var(--gold);
       color: var(--green-950) !important;
     }
 
-    .nav-map:hover {
+    .nav-location:hover {
       background: var(--gold-light) !important;
       transform: translateY(-1px);
     }
@@ -310,7 +330,7 @@
     ========================================================= */
 
     .hero {
-      min-height: 780px;
+      min-height: 790px;
 
       position: relative;
 
@@ -324,14 +344,14 @@
       background:
         linear-gradient(
           90deg,
-          rgba(4,20,12,.94) 0%,
-          rgba(6,25,15,.78) 45%,
-          rgba(5,25,15,.35) 100%
+          rgba(3,17,10,.94) 0%,
+          rgba(4,23,14,.80) 42%,
+          rgba(4,23,14,.40) 100%
         ),
         linear-gradient(
           180deg,
-          rgba(4,20,12,.1),
-          rgba(4,20,12,.88)
+          rgba(4,18,11,.15),
+          rgba(4,18,11,.90)
         ),
         url("kovilphoto.jpg") center / cover no-repeat;
     }
@@ -344,7 +364,7 @@
       right: 0;
       bottom: -1px;
 
-      height: 130px;
+      height: 145px;
 
       background:
         linear-gradient(
@@ -361,10 +381,9 @@
       z-index: 2;
 
       width: min(1200px, 90%);
-
       margin: auto;
 
-      padding-top: 90px;
+      padding-top: 85px;
     }
 
     .hero-kicker {
@@ -372,33 +391,33 @@
       align-items: center;
       gap: 8px;
 
-      padding: 7px 13px;
+      padding: 7px 14px;
 
       border: 1px solid rgba(213,173,67,.55);
       border-radius: 999px;
 
       background: rgba(10,35,21,.45);
+
       backdrop-filter: blur(10px);
 
       color: var(--gold-light);
 
       font-size: .8rem;
       font-weight: 800;
-
-      margin-bottom: 20px;
     }
 
     .hero h1 {
-      max-width: 760px;
+      max-width: 800px;
+
+      margin-top: 20px;
 
       font-size: clamp(2.7rem, 7vw, 5.8rem);
       line-height: 1.04;
 
+      letter-spacing: -.8px;
       font-weight: 800;
 
-      letter-spacing: -.8px;
-
-      text-shadow: 0 8px 30px rgba(0,0,0,.25);
+      text-shadow: 0 8px 30px rgba(0,0,0,.28);
     }
 
     .hero h1 span {
@@ -406,33 +425,33 @@
     }
 
     .hero-description {
-      max-width: 650px;
+      max-width: 670px;
 
-      margin-top: 20px;
+      margin-top: 22px;
 
-      color: rgba(255,255,255,.82);
+      color: rgba(255,255,255,.83);
 
       font-size: clamp(1rem, 2vw, 1.18rem);
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 11px;
 
       margin-top: 30px;
     }
 
     .btn {
+      min-height: 48px;
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
 
-      min-height: 48px;
-
-      padding: 12px 19px;
+      padding: 11px 19px;
 
       border-radius: 13px;
 
@@ -441,7 +460,7 @@
       font-size: .9rem;
       font-weight: 800;
 
-      transition: var(--transition);
+      transition: .28s var(--ease);
     }
 
     .btn-primary {
@@ -454,13 +473,15 @@
     .btn-primary:hover {
       background: var(--gold-light);
       transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(213,173,67,.3);
     }
 
     .btn-outline {
       color: white;
-      border: 1px solid rgba(255,255,255,.3);
+
+      border: 1px solid rgba(255,255,255,.28);
+
       background: rgba(255,255,255,.06);
+
       backdrop-filter: blur(10px);
     }
 
@@ -472,9 +493,9 @@
     .hero-details {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 9px;
 
-      margin-top: 35px;
+      margin-top: 34px;
     }
 
     .hero-detail {
@@ -482,42 +503,35 @@
       align-items: center;
       gap: 7px;
 
-      padding: 9px 13px;
+      padding: 8px 12px;
 
-      border-radius: 12px;
-
-      background: rgba(4,22,13,.45);
       border: 1px solid rgba(255,255,255,.12);
+      border-radius: 11px;
+
+      background: rgba(4,22,13,.46);
 
       backdrop-filter: blur(8px);
 
       color: rgba(255,255,255,.82);
 
-      font-size: .78rem;
+      font-size: .77rem;
       font-weight: 700;
     }
 
 
     /* =========================================================
-       MAIN
+       COMMON SECTION
     ========================================================= */
 
-    main {
-      position: relative;
-      z-index: 3;
-    }
-
     .section {
-      max-width: 1200px;
-      width: 90%;
-
+      width: min(1200px, 90%);
       margin: auto;
 
       padding: 90px 0;
     }
 
     .section-heading {
-      max-width: 700px;
+      max-width: 720px;
 
       margin: 0 auto 45px;
 
@@ -527,11 +541,10 @@
     .eyebrow {
       color: var(--green-600);
 
-      font-size: .78rem;
+      font-size: .76rem;
       font-weight: 800;
 
       letter-spacing: 1.4px;
-      text-transform: uppercase;
     }
 
     .section-heading h2 {
@@ -559,114 +572,76 @@
 
       margin: 17px auto 0;
 
-      background: var(--gold);
-
       border-radius: 99px;
+
+      background: var(--gold);
     }
 
 
     /* =========================================================
-       INTRO / STORY
+       ABOUT
     ========================================================= */
 
-    .intro-grid {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 60px;
-
-      align-items: center;
+    .about-section {
+      padding-top: 55px;
     }
 
-    .intro-image {
-      min-height: 460px;
+    .about-content {
+      max-width: 950px;
+      margin: auto;
 
-      overflow: hidden;
-
-      border-radius: var(--radius-lg);
-
-      box-shadow: var(--shadow-lg);
-
-      position: relative;
+      text-align: center;
     }
 
-    .intro-image img {
-      width: 100%;
-      height: 100%;
+    .about-content h2 {
+      margin-top: 8px;
 
-      object-fit: cover;
-
-      display: block;
-
-      transition: transform 1s ease;
-    }
-
-    .intro-image:hover img {
-      transform: scale(1.04);
-    }
-
-    .intro-image::after {
-      content: "";
-
-      position: absolute;
-      inset: 15px;
-
-      border: 1px solid rgba(255,255,255,.4);
-      border-radius: 20px;
-
-      pointer-events: none;
-    }
-
-    .intro-content .eyebrow {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .intro-content h2 {
       color: var(--green-900);
 
       font-size: clamp(2rem, 4vw, 3.2rem);
-
       line-height: 1.15;
-      font-weight: 800;
     }
 
-    .intro-content p {
-      margin-top: 18px;
+    .about-content > p {
+      max-width: 850px;
+      margin: 18px auto 0;
 
       color: var(--muted);
 
       font-size: 1rem;
+      line-height: 1.85;
     }
 
-    .feature-list {
+    .feature-grid {
+      max-width: 850px;
+      margin: 30px auto 0;
+
       display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-
-      margin-top: 25px;
-
-      list-style: none;
     }
 
-    .feature-list li {
-      padding: 13px;
+    .feature {
+      padding: 17px 12px;
+
+      border: 1px solid var(--border);
+      border-radius: 15px;
 
       background: white;
 
-      border: 1px solid var(--border);
-
-      border-radius: 13px;
+      box-shadow: var(--shadow-sm);
 
       color: var(--green-800);
 
-      font-size: .86rem;
+      font-size: .85rem;
       font-weight: 800;
 
-      box-shadow: var(--shadow-sm);
+      transition: .28s var(--ease);
+    }
+
+    .feature:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
 
@@ -674,12 +649,14 @@
        MENU
     ========================================================= */
 
-    #menu {
+    .menu-section {
+      position: relative;
+
       background:
         radial-gradient(
-          circle at 20% 10%,
+          circle at 10% 10%,
           rgba(213,173,67,.07),
-          transparent 30%
+          transparent 28%
         );
     }
 
@@ -692,26 +669,22 @@
     }
 
     .food-card {
-      background: white;
+      overflow: hidden;
 
       border: 1px solid var(--border);
-
       border-radius: var(--radius-md);
 
-      overflow: hidden;
+      background: white;
 
       box-shadow: var(--shadow-sm);
 
-      cursor: pointer;
-
       transition:
-        transform var(--transition),
-        box-shadow var(--transition);
+        transform .3s var(--ease),
+        box-shadow .3s var(--ease);
     }
 
     .food-card:hover {
       transform: translateY(-7px);
-
       box-shadow: var(--shadow-md);
     }
 
@@ -733,7 +706,7 @@
 
       object-fit: cover;
 
-      transition: transform .7s cubic-bezier(.2,.8,.2,1);
+      transition: transform .7s var(--ease);
     }
 
     .food-card:hover .food-image img {
@@ -746,20 +719,20 @@
       top: 12px;
       left: 12px;
 
-      width: 34px;
-      height: 34px;
+      width: 35px;
+      height: 35px;
 
       display: grid;
       place-items: center;
 
       border-radius: 10px;
 
-      background: rgba(7,27,18,.84);
+      background: rgba(7,27,18,.87);
 
       color: var(--gold-light);
 
       font-family: Outfit, sans-serif;
-      font-size: .8rem;
+      font-size: .78rem;
       font-weight: 800;
 
       backdrop-filter: blur(8px);
@@ -773,67 +746,104 @@
 
       padding: 5px 10px;
 
-      background: rgba(255,255,255,.92);
+      border-radius: 8px;
+
+      background: rgba(255,255,255,.94);
 
       color: var(--green-800);
-
-      border-radius: 8px;
 
       font-size: .7rem;
       font-weight: 800;
     }
 
     .food-body {
-      padding: 20px;
+      padding: 21px;
     }
 
     .food-body h3 {
       color: var(--green-900);
 
-      font-size: 1.25rem;
-      line-height: 1.3;
+      font-size: 1.28rem;
+      line-height: 1.35;
 
       font-weight: 800;
     }
 
     .food-body p {
-      margin-top: 8px;
+      margin-top: 10px;
 
       color: var(--muted);
 
-      font-size: .88rem;
-
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-
-      overflow: hidden;
+      font-size: .9rem;
+      line-height: 1.75;
     }
 
-    .food-more {
+    .food-info {
       margin-top: 15px;
 
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+      padding-top: 13px;
 
-      color: var(--green-600);
+      border-top: 1px solid var(--border);
 
-      font-size: .8rem;
-      font-weight: 800;
+      color: var(--green-700);
+
+      font-size: .79rem;
+      font-weight: 700;
     }
 
 
     /* =========================================================
-       QUALITY SECTION
+       VISIT NOTE
+    ========================================================= */
+
+    .visit-note {
+      max-width: 850px;
+
+      margin: 55px auto 0;
+
+      padding: 25px;
+
+      border: 1px solid rgba(213,173,67,.28);
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fffaf0,
+          #f4f8f1
+        );
+
+      text-align: center;
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    .visit-note h3 {
+      color: var(--green-900);
+
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .visit-note p {
+      margin-top: 6px;
+
+      color: var(--muted);
+
+      font-size: .9rem;
+    }
+
+
+    /* =========================================================
+       QUALITY
     ========================================================= */
 
     .quality-section {
-      background: var(--green-900);
+      overflow: hidden;
 
       position: relative;
 
-      overflow: hidden;
+      background: var(--green-900);
 
       color: white;
     }
@@ -843,29 +853,27 @@
 
       position: absolute;
 
-      font-size: 260px;
-
       right: -50px;
-      top: -80px;
+      top: -90px;
+
+      font-size: 270px;
 
       opacity: .035;
     }
 
     .quality-inner {
-      max-width: 1200px;
-      width: 90%;
-
+      width: min(1200px, 90%);
       margin: auto;
 
       padding: 90px 0;
     }
 
     .quality-heading {
+      max-width: 730px;
+
+      margin: auto auto 45px;
+
       text-align: center;
-
-      max-width: 720px;
-
-      margin: 0 auto 45px;
     }
 
     .quality-heading .eyebrow {
@@ -876,7 +884,6 @@
       margin-top: 8px;
 
       font-size: clamp(2rem, 4vw, 3rem);
-
       line-height: 1.15;
     }
 
@@ -884,6 +891,8 @@
       margin-top: 13px;
 
       color: rgba(255,255,255,.7);
+
+      font-size: .95rem;
     }
 
     .quality-grid {
@@ -897,27 +906,25 @@
     .quality-card {
       padding: 27px 20px;
 
-      border-radius: 18px;
-
       border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
 
       background: rgba(255,255,255,.045);
 
       text-align: center;
 
-      transition: var(--transition);
+      transition: .3s var(--ease);
     }
 
     .quality-card:hover {
-      background: rgba(255,255,255,.08);
-
       transform: translateY(-5px);
+      background: rgba(255,255,255,.08);
     }
 
     .quality-icon {
-      font-size: 29px;
-
       margin-bottom: 10px;
+
+      font-size: 29px;
     }
 
     .quality-card h3 {
@@ -929,9 +936,10 @@
     .quality-card p {
       margin-top: 7px;
 
-      color: rgba(255,255,255,.62);
+      color: rgba(255,255,255,.63);
 
       font-size: .8rem;
+      line-height: 1.6;
     }
 
 
@@ -944,11 +952,11 @@
 
       grid-template-columns: 1fr 1fr;
 
-      min-height: 420px;
-
       overflow: hidden;
 
-      border-radius: 30px;
+      min-height: 500px;
+
+      border-radius: var(--radius-xl);
 
       box-shadow: var(--shadow-lg);
     }
@@ -956,19 +964,19 @@
     .visit-content {
       padding: 55px;
 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
       background:
         radial-gradient(
           circle at top right,
-          rgba(213,173,67,.16),
-          transparent 35%
+          rgba(213,173,67,.15),
+          transparent 34%
         ),
         var(--green-900);
 
       color: white;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
 
     .visit-content .eyebrow {
@@ -979,29 +987,30 @@
       margin-top: 8px;
 
       font-size: clamp(2rem, 4vw, 3rem);
-
       line-height: 1.12;
     }
 
-    .visit-content p {
+    .visit-description {
       margin-top: 15px;
 
       color: rgba(255,255,255,.72);
+
+      font-size: .94rem;
+      line-height: 1.75;
     }
 
     .visit-info {
-      margin-top: 25px;
-
       display: grid;
+      gap: 13px;
 
-      gap: 11px;
+      margin-top: 26px;
     }
 
     .visit-item {
       display: flex;
       gap: 11px;
 
-      color: rgba(255,255,255,.85);
+      color: rgba(255,255,255,.83);
 
       font-size: .9rem;
     }
@@ -1015,61 +1024,166 @@
       flex-wrap: wrap;
       gap: 10px;
 
-      margin-top: 28px;
+      margin-top: 29px;
     }
 
-    .visit-map {
-      min-height: 420px;
+    .visit-actions .btn {
+      flex: 0 0 auto;
+    }
+
+    .visit-photo {
+      min-height: 500px;
 
       position: relative;
 
       background:
         linear-gradient(
-          rgba(9,33,22,.15),
-          rgba(9,33,22,.35)
+          rgba(6,24,15,.12),
+          rgba(6,24,15,.34)
         ),
         url("kovilphoto.jpg") center / cover no-repeat;
     }
 
-    .map-overlay {
+    .visit-photo-card {
       position: absolute;
 
       left: 50%;
-      top: 50%;
+      bottom: 28px;
 
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
 
-      width: min(260px, 80%);
+      width: min(310px, 82%);
 
-      padding: 22px;
+      padding: 18px;
 
-      text-align: center;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 17px;
 
       background: rgba(255,255,255,.94);
 
-      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.22);
 
-      box-shadow: 0 20px 50px rgba(0,0,0,.2);
+      text-align: center;
 
       color: var(--green-900);
+
+      backdrop-filter: blur(10px);
     }
 
-    .map-overlay-icon {
-      font-size: 30px;
+    .visit-photo-card span {
+      color: var(--green-600);
+
+      font-size: 1.5rem;
     }
 
-    .map-overlay h3 {
-      margin-top: 5px;
+    .visit-photo-card h3 {
+      margin-top: 3px;
 
       font-size: 1rem;
     }
 
-    .map-overlay p {
+    .visit-photo-card p {
       margin-top: 3px;
 
       color: var(--muted);
 
-      font-size: .78rem;
+      font-size: .77rem;
+    }
+
+
+    /* =========================================================
+       WHATSAPP CONTACT
+    ========================================================= */
+
+    .contact-section {
+      padding-top: 20px;
+      padding-bottom: 90px;
+    }
+
+    .contact-box {
+      padding: 40px 25px;
+
+      border: 1px solid rgba(37,211,102,.18);
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f0fff5,
+          #ffffff
+        );
+
+      text-align: center;
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-icon {
+      font-size: 34px;
+    }
+
+    .contact-box h2 {
+      margin-top: 5px;
+
+      color: var(--green-900);
+
+      font-size: 1.7rem;
+    }
+
+    .contact-box p {
+      max-width: 600px;
+
+            margin: 10px auto 0;
+
+      color: var(--muted);
+
+      font-size: .92rem;
+      line-height: 1.75;
+    }
+
+    .contact-number {
+      display: inline-block;
+
+      margin-top: 14px;
+
+      color: var(--green-800);
+
+      font-family: Outfit, sans-serif;
+
+      font-size: 1.05rem;
+      font-weight: 800;
+
+      text-decoration: none;
+    }
+
+    .contact-actions {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 20px;
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+
+      color: #062c16;
+
+      box-shadow:
+        0 10px 25px rgba(37,211,102,.18);
+    }
+
+    .whatsapp-btn:hover {
+      background: #43e47c;
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 15px 35px rgba(37,211,102,.25);
     }
 
 
@@ -1078,7 +1192,7 @@
     ========================================================= */
 
     footer {
-      padding: 50px 20px 25px;
+      padding: 48px 20px 25px;
 
       background: #06170e;
 
@@ -1091,6 +1205,7 @@
       color: var(--gold-light);
 
       font-size: 1.25rem;
+
       font-weight: 800;
     }
 
@@ -1104,35 +1219,41 @@
       width: 45px;
       height: 2px;
 
-      margin: 22px auto;
+      margin: 21px auto;
 
       background: var(--gold);
     }
 
-    .footer-copy {
-      font-size: .74rem;
+    .footer-details {
+      max-width: 600px;
+
+      margin: auto;
+
+      color: rgba(255,255,255,.45);
+
+      font-size: .76rem;
+
+      line-height: 1.8;
     }
 
-    .footer-note {
-      margin-top: 6px;
+    .footer-copy {
+      margin-top: 18px;
 
-      color: rgba(255,255,255,.38);
-
-      font-size: .7rem;
+      font-size: .72rem;
     }
 
 
     /* =========================================================
-       FLOATING MAP
+       FLOATING WHATSAPP
     ========================================================= */
 
-    .floating-map {
+    .floating-whatsapp {
       position: fixed;
 
-      right: 20px;
-      bottom: 20px;
+      right: 18px;
+      bottom: 18px;
 
-      z-index: 90;
+      z-index: 500;
 
       width: 58px;
       height: 58px;
@@ -1142,171 +1263,27 @@
 
       border-radius: 50%;
 
-      background: var(--gold);
-
-      color: var(--green-950);
-
-      text-decoration: none;
-
-      font-size: 24px;
-
-      box-shadow:
-        0 10px 30px rgba(0,0,0,.22),
-        0 0 0 5px rgba(213,173,67,.12);
-
-      transition: var(--transition);
-    }
-
-    .floating-map:hover {
-      transform: translateY(-4px) scale(1.05);
-      background: var(--gold-light);
-    }
-
-
-    /* =========================================================
-       FOOD DETAIL MODAL
-    ========================================================= */
-
-    .food-modal {
-      position: fixed;
-      inset: 0;
-
-      z-index: 5000;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 20px;
-
-      background: rgba(3,14,9,.78);
-
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-
-      opacity: 0;
-      visibility: hidden;
-
-      transition:
-        opacity .3s ease,
-        visibility .3s ease;
-    }
-
-    .food-modal.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-box {
-      width: min(650px, 100%);
-      max-height: 90vh;
-
-      overflow-y: auto;
-
-      background: var(--white);
-
-      border-radius: 26px;
-
-      box-shadow: 0 30px 100px rgba(0,0,0,.35);
-
-      transform: translateY(30px) scale(.96);
-
-      transition: transform .35s cubic-bezier(.2,.8,.2,1);
-
-      position: relative;
-    }
-
-    .food-modal.active .modal-box {
-      transform: translateY(0) scale(1);
-    }
-
-    .modal-image {
-      width: 100%;
-      height: 300px;
-
-      object-fit: cover;
-
-      display: block;
-    }
-
-    .modal-content {
-      padding: 27px;
-    }
-
-    .modal-content .eyebrow {
-      font-size: .72rem;
-    }
-
-    .modal-content h2 {
-      margin-top: 5px;
-
-      color: var(--green-900);
-
-      font-size: 1.8rem;
-      line-height: 1.25;
-
-      font-weight: 800;
-    }
-
-    .modal-content p {
-      margin-top: 14px;
-
-      color: var(--muted);
-
-      font-size: .95rem;
-      line-height: 1.75;
-    }
-
-    .modal-note {
-      margin-top: 20px;
-
-      padding: 14px 16px;
-
-      border-radius: 13px;
-
-      background: #f5f8f3;
-
-      border: 1px solid rgba(16,53,33,.1);
-
-      color: var(--green-800);
-
-      font-size: .82rem;
-      font-weight: 700;
-    }
-
-    .modal-close {
-      position: absolute;
-
-      top: 14px;
-      right: 14px;
-
-      width: 42px;
-      height: 42px;
-
-      border: 1px solid rgba(255,255,255,.5);
-
-      border-radius: 50%;
-
-      background: rgba(5,25,15,.75);
+      background: #25d366;
 
       color: white;
 
-      cursor: pointer;
+      text-decoration: none;
 
-      display: grid;
-      place-items: center;
+      font-size: 27px;
 
-      font-size: 21px;
+      box-shadow:
+        0 12px 30px rgba(0,0,0,.22),
+        0 0 0 5px rgba(37,211,102,.12);
 
-      z-index: 2;
-
-      transition: var(--transition);
+      transition:
+        transform .28s var(--ease),
+        background .28s ease;
     }
 
-    .modal-close:hover {
-      background: var(--green-900);
+    .floating-whatsapp:hover {
+      transform: translateY(-5px) scale(1.05);
 
-      transform: rotate(90deg);
+      background: #43e47c;
     }
 
 
@@ -1320,18 +1297,19 @@
       transform: translateY(35px);
 
       transition:
-        opacity .7s ease,
-        transform .7s cubic-bezier(.2,.8,.2,1);
+        opacity .75s ease,
+        transform .75s var(--ease);
     }
 
     .reveal.visible {
       opacity: 1;
+
       transform: translateY(0);
     }
 
 
     /* =========================================================
-       CUSTOM SCROLLBAR
+       SCROLLBAR
     ========================================================= */
 
     ::-webkit-scrollbar {
@@ -1345,9 +1323,9 @@
     ::-webkit-scrollbar-thumb {
       background: var(--green-700);
 
-      border-radius: 99px;
-
       border: 2px solid var(--cream);
+
+      border-radius: 99px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
@@ -1369,29 +1347,28 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .intro-grid {
-        gap: 35px;
-      }
-
       .visit-box {
         grid-template-columns: 1fr;
       }
 
-      .visit-map {
-        min-height: 330px;
+      .visit-photo {
+        min-height: 360px;
       }
+
     }
 
 
     @media (max-width: 760px) {
 
       .announcement {
-        font-size: .72rem;
         padding: 7px 10px;
+
+        font-size: .72rem;
       }
 
       .navbar {
         top: 32px;
+
         padding: 10px 4%;
       }
 
@@ -1416,21 +1393,23 @@
         display: none;
       }
 
+
       .hero {
         min-height: 720px;
 
         background:
           linear-gradient(
             180deg,
-            rgba(4,20,12,.55) 0%,
-            rgba(4,20,12,.78) 45%,
-            rgba(4,20,12,.96) 100%
+            rgba(3,17,10,.55) 0%,
+            rgba(4,22,13,.76) 45%,
+            rgba(4,18,11,.96) 100%
           ),
           url("kovilphoto.jpg") center / cover no-repeat;
       }
 
       .hero-content {
         width: 88%;
+
         padding-top: 70px;
       }
 
@@ -1448,11 +1427,13 @@
 
       .btn {
         flex: 1;
+
         min-width: 150px;
       }
 
       .hero-details {
         display: grid;
+
         grid-template-columns: 1fr;
       }
 
@@ -1462,28 +1443,26 @@
 
       .section {
         width: 90%;
+
         padding: 65px 0;
       }
 
-      .intro-grid {
-        grid-template-columns: 1fr;
+      .about-section {
+        padding-top: 45px;
       }
 
-      .intro-image {
-        min-height: 320px;
-      }
-
-      .feature-list {
-        grid-template-columns: 1fr;
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
       .menu-grid {
         grid-template-columns: 1fr;
+
         gap: 18px;
       }
 
       .food-image {
-        height: 230px;
+        height: 235px;
       }
 
       .quality-inner {
@@ -1495,20 +1474,27 @@
       }
 
       .visit-content {
-        padding: 38px 25px;
+        padding: 40px 25px;
       }
 
-      .visit-map {
-        min-height: 300px;
+      .visit-photo {
+        min-height: 320px;
       }
 
-      .floating-map {
-        width: 53px;
-        height: 53px;
+      .contact-section {
+        padding-top: 10px;
 
-        right: 16px;
-        bottom: 16px;
+        padding-bottom: 65px;
       }
+
+      .floating-whatsapp {
+        width: 54px;
+        height: 54px;
+
+        right: 15px;
+        bottom: 15px;
+      }
+
     }
 
 
@@ -1520,7 +1506,9 @@
 
       .brand-name {
         white-space: nowrap;
+
         overflow: hidden;
+
         text-overflow: ellipsis;
       }
 
@@ -1540,17 +1528,22 @@
         width: 100%;
       }
 
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
       .quality-grid {
         grid-template-columns: 1fr;
       }
 
-      .modal-image {
-        height: 230px;
+      .visit-actions {
+        flex-direction: column;
       }
 
-      .modal-content {
-        padding: 22px;
+      .visit-actions .btn {
+        width: 100%;
       }
+
     }
 
 
@@ -1566,6 +1559,7 @@
         scroll-behavior: auto !important;
 
         animation-duration: .01ms !important;
+
         animation-iteration-count: 1 !important;
 
         transition-duration: .01ms !important;
@@ -1573,8 +1567,10 @@
 
       .reveal {
         opacity: 1;
+
         transform: none;
       }
+
     }
 
   </style>
@@ -1609,15 +1605,13 @@
   </div>
 
 
-
   <!-- =======================================================
-       ANNOUNCEMENT
+       TOP BAR
   ======================================================== -->
 
   <div class="announcement">
     🌿 பாரம்பரிய சுவை • இயற்கையான பொருட்கள் • ஆரோக்கியமான உணவுகள்
   </div>
-
 
 
   <!-- =======================================================
@@ -1670,7 +1664,12 @@
         </li>
 
         <li>
-          <a href="#visit" class="nav-map">
+          <a
+            href="https://maps.app.goo.gl/gzAuQzx2hiHjwyBe6?g_st=ac"
+            target="_blank"
+            rel="noopener"
+            class="nav-location"
+          >
             📍 வழி காண
           </a>
         </li>
@@ -1680,7 +1679,6 @@
     </div>
 
   </nav>
-
 
 
   <!-- =======================================================
@@ -1704,7 +1702,7 @@
       <p class="hero-description">
         நம் முன்னோர்களின் பாரம்பரிய உணவு முறையையும்,
         இயற்கையான பொருட்களின் நன்மைகளையும் இணைத்து
-        தயாரிக்கப்படும் சுவையான மாலை நேர உணவுகள் மற்றும் பானங்கள்.
+        தயாரிக்கப்படும் சுவையான பாரம்பரிய உணவுகள் மற்றும் பானங்கள்.
       </p>
 
 
@@ -1715,12 +1713,10 @@
         </a>
 
         <a
-          href="https://maps.app.goo.gl/gzAuQzx2hiHjwyBe6?g_st=ac"
-          target="_blank"
-          rel="noopener"
+          href="#visit"
           class="btn btn-outline"
         >
-          📍 கடைக்கு வர வழி
+          📍 கடைக்கு வர
         </a>
 
       </div>
@@ -1751,7 +1747,6 @@
   </header>
 
 
-
   <!-- =======================================================
        MAIN
   ======================================================== -->
@@ -1759,72 +1754,54 @@
   <main>
 
 
-
     <!-- =====================================================
          ABOUT
     ====================================================== -->
 
-    <section class="section reveal" id="about">
+    <section class="section about-section reveal" id="about">
 
-      <div class="intro-grid">
+      <div class="about-content">
 
+        <span class="eyebrow">
+          எங்கள் நோக்கம்
+        </span>
 
-        <div class="intro-image">
+        <h2>
+          பாரம்பரியத்தை மீண்டும் சுவைப்போம்
+        </h2>
 
-          <img
-            src="kovilphoto.jpg"
-            alt="கரூர் கல்யாண பசுபதீஸ்வரர் கோவில்"
-            loading="lazy"
-          >
+        <p>
+          இன்று வேகமாக மாறிவரும் உணவுப் பழக்கங்களுக்கு நடுவில்,
+          நம் முன்னோர்கள் பயன்படுத்திய பாரம்பரிய தானியங்கள்,
+          மூலிகைகள் மற்றும் இயற்கையான பொருட்களை மீண்டும்
+          நம் அன்றாட உணவில் கொண்டு வருவதே எங்களின் நோக்கம்.
+        </p>
 
-        </div>
-
-
-        <div class="intro-content">
-
-          <span class="eyebrow">
-            எங்கள் நோக்கம்
-          </span>
-
-          <h2>
-            பாரம்பரியத்தை
-            மீண்டும் சுவைப்போம்
-          </h2>
-
-          <p>
-            இன்று வேகமாக மாறிவரும் உணவுப் பழக்கங்களுக்கு நடுவில்,
-            நம் முன்னோர்கள் பயன்படுத்திய பாரம்பரிய தானியங்கள்,
-            மூலிகைகள் மற்றும் இயற்கையான பொருட்களை மீண்டும்
-            நம் அன்றாட உணவில் கொண்டு வருவதே எங்களின் நோக்கம்.
-          </p>
-
-          <p>
-            செயற்கை நிறமூட்டிகள், அஜினோமோட்டோ மற்றும்
-            வெள்ளைச் சர்க்கரை போன்றவற்றை தவிர்த்து,
-            இயற்கையான சுவையுடன் உணவுகளைத் தயாரித்து
-            நேரடியாக உங்களுக்கு வழங்குகிறோம்.
-          </p>
+        <p>
+          இயற்கையான பொருட்களைத் தேர்ந்தெடுத்து,
+          பாரம்பரிய சுவையையும் தயாரிப்பு முறையையும்
+          முடிந்தவரை பாதுகாத்து உணவுகளைத் தயாரித்து
+          நேரடியாக உங்களுக்கு வழங்குகிறோம்.
+        </p>
 
 
-          <ul class="feature-list">
+        <div class="feature-grid">
 
-            <li>
-              🌾 பாரம்பரிய தானியங்கள்
-            </li>
+          <div class="feature">
+            🌾 பாரம்பரிய தானியங்கள்
+          </div>
 
-            <li>
-              🌿 இயற்கையான மூலிகைகள்
-            </li>
+          <div class="feature">
+            🌿 இயற்கையான மூலிகைகள்
+          </div>
 
-            <li>
-              🥥 தரமான தேங்காய்ப்பால்
-            </li>
+          <div class="feature">
+            🥥 தரமான தேங்காய்ப்பால்
+          </div>
 
-            <li>
-              🍯 நாட்டுச் சர்க்கரை
-            </li>
-
-          </ul>
+          <div class="feature">
+            🍯 நாட்டுச் சர்க்கரை
+          </div>
 
         </div>
 
@@ -1833,12 +1810,11 @@
     </section>
 
 
-
     <!-- =====================================================
          MENU
     ====================================================== -->
 
-    <section class="section reveal" id="menu">
+    <section class="section menu-section reveal" id="menu">
 
       <div class="section-heading">
 
@@ -1847,12 +1823,12 @@
         </span>
 
         <h2>
-          ஆரோக்கிய மெனு
+          பாரம்பரிய மெனு
         </h2>
 
         <p>
-          கடைக்கு நேரில் வந்து சுவைத்து மகிழுங்கள்.
-          இங்கு ஆன்லைன் ஆர்டர் வசதி இல்லை.
+          ஒவ்வொரு உணவின் தனித்துவமான பொருட்கள்,
+          சுவை மற்றும் தயாரிப்பு முறையை அறிந்து கொள்ளுங்கள்.
         </p>
 
         <div class="gold-line"></div>
@@ -1863,15 +1839,11 @@
       <div class="menu-grid">
 
 
-        <!-- 1 -->
+        <!-- =================================================
+             FOOD 01
+        ================================================== -->
 
-        <article
-          class="food-card"
-          data-name="பாரம்பரிய பருத்திப்பால்"
-          data-image="paruthipal.png"
-          data-label="சுவை & நலம்"
-          data-description="தூய நாட்டுச் சர்க்கரை, சுக்கு, ஏலக்காய் மற்றும் பாரம்பரிய முறையில் தயாரிக்கப்படும் பருத்திப்பால். மாலை நேரத்தில் சுவைக்க ஏற்ற பாரம்பரிய பானம்."
-        >
+        <article class="food-card">
 
           <div class="food-image">
 
@@ -1898,29 +1870,25 @@
             </h3>
 
             <p>
-              நாட்டுச் சர்க்கரை, சுக்கு, ஏலக்காய்
-              கலந்து தயாரிக்கப்படும் பாரம்பரிய பானம்.
+              பருத்தி விதை சார்ந்த பாரம்பரிய பானத்தை
+              நாட்டுச் சர்க்கரை மற்றும் நறுமணப் பொருட்களுடன்
+              தயாரிக்கும் சிறப்பு வகை.
             </p>
 
-            <span class="food-more">
-              முழு விவரம் பார்க்க →
-            </span>
+            <div class="food-info">
+              🌿 சுக்கு • ஏலக்காய் • நாட்டுச் சர்க்கரை
+            </div>
 
           </div>
 
         </article>
 
 
+        <!-- =================================================
+             FOOD 02
+        ================================================== -->
 
-        <!-- 2 -->
-
-        <article
-          class="food-card"
-          data-name="முடவாட்டுக்கால் கிழங்கு சூப்"
-          data-image="soup.jpg"
-          data-label="அரிய மூலிகை சிறப்பு"
-          data-description="கொல்லிமலை உள்ளிட்ட மலைப்பகுதிகளில் கிடைக்கும் முடவாட்டுக்கால் கிழங்குடன் இயற்கை மூலிகைகள் சேர்த்து பாரம்பரிய முறையில் தயாரிக்கப்படும் சூப்."
-        >
+        <article class="food-card">
 
           <div class="food-image">
 
@@ -1935,7 +1903,7 @@
             </span>
 
             <span class="food-label">
-              அரிய மூலிகை சிறப்பு
+              மூலிகை சிறப்பு
             </span>
 
           </div>
@@ -1947,29 +1915,25 @@
             </h3>
 
             <p>
-              அரிய மூலிகை கிழங்கு மற்றும்
-              இயற்கை பொருட்களுடன் தயாரிக்கப்படும் சூப்.
+              முடவாட்டுக்கால் கிழங்குடன் இயற்கையான
+              மூலிகைகள் மற்றும் நறுமணப் பொருட்கள் சேர்த்து
+              தயாரிக்கப்படும் சூடான சூப்.
             </p>
 
-            <span class="food-more">
-              முழு விவரம் பார்க்க →
-            </span>
+            <div class="food-info">
+              🌿 முடவாட்டுக்கால் கிழங்கு • மூலிகைகள்
+            </div>
 
           </div>
 
         </article>
 
 
+        <!-- =================================================
+             FOOD 03
+        ================================================== -->
 
-        <!-- 3 -->
-
-        <article
-          class="food-card"
-          data-name="ஸ்பெஷல் தேங்காய் பால்"
-          data-image="thengaipaal.png"
-          data-label="குளிர்ச்சி & சுவை"
-          data-description="புதிய தேங்காயிலிருந்து பெறப்படும் அடர்த்தியான தேங்காய்ப்பாலுடன் கசகசா, ஏலக்காய் மற்றும் நாட்டுச் சர்க்கரை சேர்த்து தயாரிக்கப்படும் பாரம்பரிய பானம்."
-        >
+        <article class="food-card">
 
           <div class="food-image">
 
@@ -1996,29 +1960,25 @@
             </h3>
 
             <p>
-              தேங்காய்ப்பால், கசகசா, ஏலக்காய்
-              மற்றும் நாட்டுச் சர்க்கரை சேர்க்கப்பட்ட பானம்.
+              புதிய தேங்காயிலிருந்து பெறப்படும்
+              தேங்காய்ப்பாலுடன் கசகசா, ஏலக்காய் மற்றும்
+              நாட்டுச் சர்க்கரை சேர்க்கப்படும் பாரம்பரிய பானம்.
             </p>
 
-            <span class="food-more">
-              முழு விவரம் பார்க்க →
-            </span>
+            <div class="food-info">
+              🥥 தேங்காய்ப்பால் • கசகசா • ஏலக்காய்
+            </div>
 
           </div>
 
         </article>
 
 
+        <!-- =================================================
+             FOOD 04
+        ================================================== -->
 
-        <!-- 4 -->
-
-        <article
-          class="food-card"
-          data-name="பாரம்பரிய உளுந்தங்கஞ்சி"
-          data-image="ulundhanganji.jpg"
-          data-label="முழு பலம்"
-          data-description="கருப்பு உளுந்து, சுக்கு, ஏலக்காய் மற்றும் சத்துப்பொருட்கள் சேர்த்து பக்குவமாக சமைக்கப்படும் பாரம்பரிய உளுந்தங்கஞ்சி."
-        >
+        <article class="food-card">
 
           <div class="food-image">
 
@@ -2033,7 +1993,7 @@
             </span>
 
             <span class="food-label">
-              முழு பலம்
+              பாரம்பரிய சத்து
             </span>
 
           </div>
@@ -2045,29 +2005,25 @@
             </h3>
 
             <p>
-              கருப்பு உளுந்து மற்றும் பாரம்பரிய
-              பொருட்களுடன் தயாரிக்கப்படும் கஞ்சி.
+              கருப்பு உளுந்தை அடிப்படையாகக் கொண்டு,
+              பாரம்பரிய நறுமணப் பொருட்களுடன் பக்குவமாக
+              தயாரிக்கப்படும் சத்தான கஞ்சி.
             </p>
 
-            <span class="food-more">
-              முழு விவரம் பார்க்க →
-            </span>
+            <div class="food-info">
+              🌾 கருப்பு உளுந்து • சுக்கு • ஏலக்காய்
+            </div>
 
           </div>
 
         </article>
 
 
+        <!-- =================================================
+             FOOD 05
+        ================================================== -->
 
-        <!-- 5 -->
-
-        <article
-          class="food-card"
-          data-name="தாளித்த பட்டாணி"
-          data-image="pattani.jpg"
-          data-label="மாலை நேர சுவை"
-          data-description="சுவையான நறுமண மசாலாவுடன் பக்குவமாக தாளிக்கப்பட்ட சத்தான பட்டாணி. மாலை நேரத்தில் சுவைக்க ஏற்ற பாரம்பரிய உணவு."
-        >
+        <article class="food-card">
 
           <div class="food-image">
 
@@ -2094,35 +2050,31 @@
             </h3>
 
             <p>
-              நறுமண மசாலாவுடன் தாளிக்கப்பட்ட
-              சத்தான மாலை நேர உணவு.
+              சத்தான பட்டாணியை நறுமண மசாலா,
+              தாளிப்பு மற்றும் இயற்கையான பொருட்களுடன்
+              பக்குவமாக தயாரிக்கும் மாலை நேர சிற்றுண்டி.
             </p>
 
-            <span class="food-more">
-              முழு விவரம் பார்க்க →
-            </span>
+            <div class="food-info">
+              🌱 பட்டாணி • தாளிப்பு • நறுமண மசாலா
+            </div>
 
           </div>
 
         </article>
 
 
+        <!-- =================================================
+             FOOD 06
+        ================================================== -->
 
-        <!-- 6 -->
-
-        <article
-          class="food-card"
-          data-name="சத்தான பாசிப்பயறு"
-          data-image="pasipairu.jpg"
-          data-label="புரதச்சத்து"
-          data-description="உடலுக்குக் குளிர்ச்சியும் வலிமையும் தரும் பாசிப்பயறு சுவையான மசாலாவுடன் தாளிக்கப்பட்டு வழங்கப்படுகிறது."
-        >
+        <article class="food-card">
 
           <div class="food-image">
 
             <img
               src="pasipairu.jpg"
-              alt="பாசிப்பயறு"
+              alt="சத்தான பாசிப்பயறு"
               loading="lazy"
             >
 
@@ -2143,29 +2095,25 @@
             </h3>
 
             <p>
-              சத்துமிக்க பாசிப்பயறு
-              பாரம்பரிய முறையில் தயாரிக்கப்படுகிறது.
+              பாசிப்பயறை நன்றாக வேகவைத்து,
+              பாரம்பரிய தாளிப்பு மற்றும் நறுமணப் பொருட்களுடன்
+              சுவையாக வழங்கப்படும் உணவு.
             </p>
 
-            <span class="food-more">
-              முழு விவரம் பார்க்க →
-            </span>
+            <div class="food-info">
+              🌱 பாசிப்பயறு • தாளிப்பு • நறுமணப் பொருட்கள்
+            </div>
 
           </div>
 
         </article>
 
 
+        <!-- =================================================
+             FOOD 07
+        ================================================== -->
 
-        <!-- 7 -->
-
-        <article
-          class="food-card"
-          data-name="தேங்காய்த் துருவல் சுண்டல்"
-          data-image="sundal.jpeg"
-          data-label="பாரம்பரிய காரம்"
-          data-description="தேங்காய்த் துருவல் மற்றும் நறுமணப் பொருட்களுடன் பாரம்பரிய முறையில் தாளிக்கப்பட்ட புரதச்சத்து நிறைந்த சுண்டல்."
-        >
+        <article class="food-card">
 
           <div class="food-image">
 
@@ -2180,7 +2128,7 @@
             </span>
 
             <span class="food-label">
-              பாரம்பரிய காரம்
+              பாரம்பரிய சுவை
             </span>
 
           </div>
@@ -2192,13 +2140,14 @@
             </h3>
 
             <p>
-              தேங்காய்த் துருவல் மற்றும் நறுமணப் பொருட்களுடன்
-              தயாரிக்கப்படும் சுண்டல்.
+              வேகவைத்த பயறு வகைகளுடன் புதிய தேங்காய்த்
+              துருவல், தாளிப்பு மற்றும் நறுமணப் பொருட்களை
+              சேர்த்து தயாரிக்கப்படும் பாரம்பரிய சுண்டல்.
             </p>
 
-            <span class="food-more">
-  முழு விவரம் பார்க்க →
-</span>
+            <div class="food-info">
+              🥥 தேங்காய்த் துருவல் • பயறு • தாளிப்பு
+            </div>
 
           </div>
 
@@ -2206,8 +2155,25 @@
 
       </div>
 
-    </section>
 
+      <!-- =================================================
+           SINGLE VISIT MESSAGE
+      ================================================== -->
+
+      <div class="visit-note">
+
+        <h3>
+          🏪 நேரில் வந்து வாங்கி சுவையுங்கள்
+        </h3>
+
+        <p>
+          எங்களின் உணவுகள் மற்றும் பானங்களை கடைக்கு
+          நேரில் வந்து வாங்கி சுவைக்கலாம்.
+        </p>
+
+      </div>
+
+    </section>
 
 
     <!-- =====================================================
@@ -2221,18 +2187,19 @@
         <div class="quality-heading">
 
           <span class="eyebrow">
-            எங்கள் தரம்
+            எங்கள் அணுகுமுறை
           </span>
 
           <h2>
-            இயற்கையான பொருட்கள்.
-            பாரம்பரியமான தயாரிப்பு.
+            பாரம்பரிய உணவில்
+            எங்கள் கவனம்
           </h2>
 
           <p>
-            சுவையுடன் கூடிய பாரம்பரிய உணவுகளை
-            தரமான பொருட்களைக் கொண்டு தயாரிப்பதே
-            எங்களின் முக்கிய நோக்கம்.
+                        உணவின் சுவை மட்டுமல்லாமல்,
+            பயன்படுத்தப்படும் பொருட்களின் தரம்,
+            பாரம்பரியத்தன்மை மற்றும் தயாரிப்பு முறையிலும்
+            கவனம் செலுத்துகிறோம்.
           </p>
 
         </div>
@@ -2241,42 +2208,74 @@
         <div class="quality-grid">
 
           <div class="quality-card">
-            <div class="quality-icon">🌾</div>
-            <h3>பாரம்பரிய தானியங்கள்</h3>
+
+            <div class="quality-icon">
+              🌾
+            </div>
+
+            <h3>
+              பாரம்பரிய தானியங்கள்
+            </h3>
+
             <p>
-              நம் பாரம்பரிய உணவு முறையில்
-              பயன்படுத்தப்படும் தானியங்களுக்கு முக்கியத்துவம்.
+              நம் பாரம்பரிய உணவு முறையில் பயன்படுத்தப்பட்ட
+              தானியங்கள் மற்றும் பயறு வகைகளுக்கு முக்கியத்துவம்.
             </p>
+
           </div>
 
 
           <div class="quality-card">
-            <div class="quality-icon">🌿</div>
-            <h3>இயற்கை மூலிகைகள்</h3>
+
+            <div class="quality-icon">
+              🌿
+            </div>
+
+            <h3>
+              இயற்கையான பொருட்கள்
+            </h3>
+
             <p>
-              உணவுகளுக்கு ஏற்ற இயற்கையான
-              மூலிகைகள் மற்றும் பொருட்கள்.
+              இயன்றவரை இயற்கையான பொருட்களைத் தேர்ந்தெடுத்து
+              பாரம்பரிய சுவையைப் பாதுகாக்கும் முயற்சி.
             </p>
+
           </div>
 
 
           <div class="quality-card">
-            <div class="quality-icon">🚫</div>
-            <h3>செயற்கை நிறமூட்டிகள் இல்லை</h3>
+
+            <div class="quality-icon">
+              🥥
+            </div>
+
+            <h3>
+              புதிய பொருட்கள்
+            </h3>
+
             <p>
-              செயற்கை நிறமூட்டிகளை தவிர்த்து
-              இயற்கையான தயாரிப்புக்கு முன்னுரிமை.
+              தேங்காய்ப்பால் போன்ற பொருட்களைச் சுவைக்கும்
+              தரத்துடன் தயாரித்து வழங்குவதில் கவனம்.
             </p>
+
           </div>
 
 
           <div class="quality-card">
-            <div class="quality-icon">🥥</div>
-            <h3>தரமான பொருட்கள்</h3>
+
+            <div class="quality-icon">
+              🍯
+            </div>
+
+            <h3>
+              பாரம்பரிய இனிப்பு
+            </h3>
+
             <p>
-              தரமான தேங்காய், நாட்டுச் சர்க்கரை
-              மற்றும் தேவையான இயற்கை பொருட்கள்.
+              நாட்டுச் சர்க்கரை போன்ற பாரம்பரிய பொருட்களை
+              உணவின் தன்மைக்கு ஏற்றவாறு பயன்படுத்துகிறோம்.
             </p>
+
           </div>
 
         </div>
@@ -2284,7 +2283,6 @@
       </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -2298,61 +2296,71 @@
         <div class="visit-content">
 
           <span class="eyebrow">
-            கடைக்கு வாருங்கள்
+            எங்களை நேரில் சந்திக்க
           </span>
 
           <h2>
-            நேரில் வந்து
-            சுவைத்து பாருங்கள்
+            கடைக்கு வந்து
+            பாரம்பரிய சுவையை
+            அனுபவியுங்கள்
           </h2>
 
-          <p>
-            ஆன்லைன் ஆர்டர் அல்லது டெலிவரி வசதி இல்லை.
-            எங்களின் உணவுகளை கடைக்கு நேரில் வந்து
-            வாங்கி சுவைத்து மகிழுங்கள்.
+          <p class="visit-description">
+            பாரம்பரிய உணவுகள் மற்றும் பானங்களை நேரில் வந்து
+            வாங்கி சுவைக்கலாம். மாலை நேரத்தில் குடும்பத்துடன்
+            அல்லது நண்பர்களுடன் வந்து பாரம்பரிய சுவையை
+            அனுபவிக்க ஏற்ற இடமாக எங்களைச் சந்திக்கலாம்.
           </p>
 
 
           <div class="visit-info">
 
             <div class="visit-item">
+
               <span>📍</span>
 
               <div>
                 <strong>இடம்</strong><br>
-                கல்யாண பசுபதீஸ்வரர் கோவில் அருகில்,
-                மாடவிளாகம், கரூர்
+                கரூர் கல்யாண பசுபதீஸ்வரர் கோவில்
+                அருகில்
               </div>
+
             </div>
 
 
             <div class="visit-item">
+
               <span>⏰</span>
 
               <div>
                 <strong>நேரம்</strong><br>
-                மாலை 4:00 – இரவு 11:30
+                மாலை 4:00 மணி – இரவு 11:30 மணி
               </div>
+
             </div>
 
 
             <div class="visit-item">
+
               <span>📅</span>
 
               <div>
                 <strong>செயல்படும் நாட்கள்</strong><br>
                 திங்கள் முதல் சனி வரை
               </div>
+
             </div>
 
 
             <div class="visit-item">
+
               <span>🚫</span>
 
               <div>
-                <strong>ஞாயிறு</strong><br>
-                விடுமுறை
+                <strong>விடுமுறை</strong><br>
+                ஞாயிற்றுக்கிழமை
               </div>
+
             </div>
 
           </div>
@@ -2366,7 +2374,16 @@
               rel="noopener"
               class="btn btn-primary"
             >
-              📍 Google Maps-ல் வழி காண
+              📍 லொகேஷன் பார்க்க
+            </a>
+
+            <a
+              href="https://wa.me/919025450028"
+              target="_blank"
+              rel="noopener"
+              class="btn whatsapp-btn"
+            >
+              💬 WhatsApp
             </a>
 
           </div>
@@ -2374,33 +2391,70 @@
         </div>
 
 
-        <div class="visit-map">
+        <div class="visit-photo">
 
-          <div class="map-overlay">
+          <div class="visit-photo-card">
 
-            <div class="map-overlay-icon">
-              📍
-            </div>
+            <span>🛕</span>
 
             <h3>
-              திரு ஆனிலை பாரம்பரிய உணவுகள்
+              கல்யாண பசுபதீஸ்வரர் கோவில்
             </h3>
 
             <p>
-              கல்யாண பசுபதீஸ்வரர் கோவில் அருகில்
+              கோவிலுக்கு மிக அருகில் எங்கள் கடையை
+              நேரில் வந்து கண்டறியலாம்.
             </p>
 
-            <a
-              href="https://maps.app.goo.gl/gzAuQzx2hiHjwyBe6?g_st=ac"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-primary"
-              style="margin-top:14px;width:100%;"
-            >
-              வழி காண →
-            </a>
-
           </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section class="section contact-section reveal" id="contact">
+
+      <div class="contact-box">
+
+        <div class="contact-icon">
+          💬
+        </div>
+
+        <h2>
+          மேலும் தெரிந்துகொள்ள
+        </h2>
+
+        <p>
+          உணவுகள், கிடைக்கும் நேரம் அல்லது வேறு தகவல்கள்
+          குறித்து தெரிந்துகொள்ள WhatsApp மூலம் எங்களுக்கு
+          நேரடியாக செய்தி அனுப்புங்கள்.
+        </p>
+
+        <a
+          href="tel:+919025450028"
+          class="contact-number"
+        >
+          +91 90254 50028
+        </a>
+
+
+        <div class="contact-actions">
+
+          <a
+            href="https://wa.me/919025450028"
+            target="_blank"
+            rel="noopener"
+            class="btn whatsapp-btn"
+          >
+            💬 WhatsApp-ல் செய்தி அனுப்புங்கள்
+          </a>
 
         </div>
 
@@ -2411,7 +2465,6 @@
   </main>
 
 
-
   <!-- =======================================================
        FOOTER
   ======================================================== -->
@@ -2419,99 +2472,53 @@
   <footer>
 
     <div class="footer-brand">
-      திரு ஆனிலை பாரம்பரிய உணவுகள்
+      திரு ஆனிலை
     </div>
 
     <div class="footer-tagline">
-      பாரம்பரிய சுவை • இயற்கையான பொருட்கள் • ஆரோக்கியமான உணவுகள்
+      பாரம்பரிய உணவுகள்
     </div>
 
     <div class="footer-divider"></div>
+
+    <div class="footer-details">
+
+      பாரம்பரிய தானியங்கள் • இயற்கையான பொருட்கள் •
+      பாரம்பரிய சுவை
+
+      <br>
+
+      கரூர் கல்யாண பசுபதீஸ்வரர் கோவில் அருகில்
+
+      <br>
+
+      மாலை 4:00 மணி – இரவு 11:30 மணி |
+      திங்கள் – சனி
+
+    </div>
 
     <div class="footer-copy">
       © 2026 திரு ஆனிலை பாரம்பரிய உணவுகள்.
       அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.
     </div>
 
-    <div class="footer-note">
-      உடலே ஆலயம் • உணவே மருந்து 🌿
-    </div>
-
   </footer>
 
 
-
   <!-- =======================================================
-       FLOATING MAP BUTTON
+       FLOATING WHATSAPP
   ======================================================== -->
 
   <a
-    href="https://maps.app.goo.gl/gzAuQzx2hiHjwyBe6?g_st=ac"
+    href="https://wa.me/919025450028"
+    class="floating-whatsapp"
     target="_blank"
     rel="noopener"
-    class="floating-map"
-    aria-label="Google Maps வழி"
-    title="கடைக்கு வழி"
+    aria-label="WhatsApp-ல் தொடர்பு கொள்ள"
+    title="WhatsApp"
   >
-    📍
+    💬
   </a>
-
-
-
-  <!-- =======================================================
-       FOOD DETAIL MODAL
-  ======================================================== -->
-
-  <div
-    class="food-modal"
-    id="foodModal"
-    aria-hidden="true"
-  >
-
-    <div class="modal-box">
-
-      <button
-        class="modal-close"
-        id="modalClose"
-        aria-label="மூடு"
-      >
-        ×
-      </button>
-
-
-      <img
-        class="modal-image"
-        id="modalImage"
-        src=""
-        alt=""
-      >
-
-
-      <div class="modal-content">
-
-        <span class="eyebrow" id="modalLabel">
-          சிறப்பு
-        </span>
-
-        <h2 id="modalTitle">
-          உணவு
-        </h2>
-
-        <p id="modalDescription">
-          விவரம்
-        </p>
-
-        <div class="modal-note">
-          🏪 இந்த உணவு கடையில் நேரில் கிடைக்கும்.
-          ஆன்லைன் ஆர்டர் / டெலிவரி வசதி இல்லை.
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
 
 
   <!-- =======================================================
@@ -2520,42 +2527,39 @@
 
   <script>
 
-    /* =======================================================
-       LOADER
-    ======================================================== */
+    /* =====================================================
+       PAGE LOADER
+    ====================================================== */
 
     window.addEventListener("load", () => {
 
+      const loader = document.getElementById("loader");
+
       setTimeout(() => {
 
-        const loader =
-          document.getElementById("loader");
-
-        if (loader) {
-          loader.classList.add("hide");
-        }
+        loader.classList.add("hidden");
 
       }, 500);
 
     });
 
 
-
-    /* =======================================================
+    /* =====================================================
        NAVBAR SCROLL EFFECT
-    ======================================================== */
+    ====================================================== */
 
-    const navbar =
-      document.getElementById("navbar");
+    const navbar = document.getElementById("navbar");
 
     function updateNavbar() {
 
-      if (!navbar) return;
+      if (window.scrollY > 40) {
 
-      if (window.scrollY > 60) {
         navbar.classList.add("scrolled");
+
       } else {
+
         navbar.classList.remove("scrolled");
+
       }
 
     }
@@ -2569,292 +2573,127 @@
     updateNavbar();
 
 
-
-    /* =======================================================
+    /* =====================================================
        SCROLL REVEAL
-    ======================================================== */
+    ====================================================== */
 
     const revealElements =
       document.querySelectorAll(".reveal");
 
 
-    if ("IntersectionObserver" in window) {
+    const revealObserver =
+      new IntersectionObserver(
 
-      const revealObserver =
-        new IntersectionObserver(
+        (entries, observer) => {
 
-          (entries, observer) => {
+          entries.forEach(entry => {
 
-            entries.forEach(entry => {
+            if (entry.isIntersecting) {
 
-              if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
 
-                entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
 
-                observer.unobserve(
-                  entry.target
-                );
+            }
 
-              }
+          });
 
-            });
+        },
 
-          },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -50px 0px"
+        }
 
-          {
-            threshold: 0.12
-          }
-
-        );
-
-
-      revealElements.forEach(element => {
-
-        revealObserver.observe(element);
-
-      });
-
-    } else {
-
-      revealElements.forEach(element => {
-
-        element.classList.add("visible");
-
-      });
-
-    }
-
-
-
-    /* =======================================================
-       FOOD MODAL
-    ======================================================== */
-
-    const foodModal =
-      document.getElementById("foodModal");
-
-    const modalImage =
-      document.getElementById("modalImage");
-
-    const modalTitle =
-      document.getElementById("modalTitle");
-
-    const modalLabel =
-      document.getElementById("modalLabel");
-
-    const modalDescription =
-      document.getElementById("modalDescription");
-
-    const modalClose =
-      document.getElementById("modalClose");
-
-
-    const foodCards =
-      document.querySelectorAll(".food-card");
-
-
-    function openFoodModal(card) {
-
-      const name =
-        card.dataset.name || "";
-
-      const image =
-        card.dataset.image || "";
-
-      const label =
-        card.dataset.label || "";
-
-      const description =
-        card.dataset.description || "";
-
-
-      modalTitle.textContent = name;
-
-      modalLabel.textContent = label;
-
-      modalDescription.textContent =
-        description;
-
-      modalImage.src = image;
-
-      modalImage.alt = name;
-
-
-      foodModal.classList.add("active");
-
-      foodModal.setAttribute(
-        "aria-hidden",
-        "false"
       );
 
 
-      document.body.style.overflow = "hidden";
+    revealElements.forEach(element => {
 
-    }
-
-
-    function closeFoodModal() {
-
-      foodModal.classList.remove(
-        "active"
-      );
-
-      foodModal.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-      document.body.style.overflow = "";
-
-    }
-
-
-    foodCards.forEach(card => {
-
-      card.addEventListener(
-        "click",
-        () => openFoodModal(card)
-      );
+      revealObserver.observe(element);
 
     });
 
 
-    modalClose.addEventListener(
-      "click",
-      closeFoodModal
-    );
+    /* =====================================================
+       SMOOTH INTERNAL LINKS
+    ====================================================== */
 
+    document.querySelectorAll(
+      'a[href^="#"]'
+    ).forEach(link => {
 
-    foodModal.addEventListener(
-      "click",
-      event => {
+      link.addEventListener("click", function(event) {
 
-        if (event.target === foodModal) {
-          closeFoodModal();
-        }
-
-      }
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      event => {
+        const targetId =
+          this.getAttribute("href");
 
         if (
-          event.key === "Escape" &&
-          foodModal.classList.contains("active")
+          !targetId ||
+          targetId === "#"
         ) {
+          return;
+        }
 
-          closeFoodModal();
+        const target =
+          document.querySelector(targetId);
+
+        if (!target) {
+          return;
+        }
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      });
+
+    });
+
+
+    /* =====================================================
+       IMAGE FALLBACK
+    ====================================================== */
+
+    document.querySelectorAll("img").forEach(img => {
+
+      img.addEventListener("error", () => {
+
+        img.style.display = "none";
+
+        const parent =
+          img.closest(".food-image");
+
+        if (parent) {
+
+          parent.style.background =
+            "linear-gradient(135deg,#173f29,#0b2618)";
 
         }
 
-      }
-    );
+      });
+
+    });
 
 
+    /* =====================================================
+       WHATSAPP TRACKING / FEEDBACK
+    ====================================================== */
 
-    /* =======================================================
-       PREVENT MODAL IMAGE DRAGGING
-    ======================================================== */
+    document.querySelectorAll(
+      'a[href*="wa.me"]'
+    ).forEach(button => {
 
-    modalImage.addEventListener(
-      "dragstart",
-      event => event.preventDefault()
-    );
+      button.addEventListener("click", () => {
 
-
-
-    /* =======================================================
-       SMOOTH NAVIGATION
-    ======================================================== */
-
-    document
-      .querySelectorAll('a[href^="#"]')
-      .forEach(link => {
-
-        link.addEventListener(
-          "click",
-          function(event) {
-
-            const targetId =
-              this.getAttribute("href");
-
-            if (
-              !targetId ||
-              targetId === "#"
-            ) {
-              return;
-            }
-
-            const target =
-              document.querySelector(targetId);
-
-            if (!target) return;
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-
-          }
+        console.log(
+          "WhatsApp contact button clicked"
         );
 
       });
-
-
-
-    /* =======================================================
-       IMAGE ERROR HANDLING
-    ======================================================== */
-
-    document
-      .querySelectorAll("img")
-      .forEach(img => {
-
-        img.addEventListener(
-          "error",
-          () => {
-
-            img.style.opacity = "0";
-
-          }
-        );
-
-      });
-
-
-
-    /* =======================================================
-       MOBILE TOUCH FEEDBACK
-    ======================================================== */
-
-    foodCards.forEach(card => {
-
-      card.addEventListener(
-        "touchstart",
-        () => {
-
-          card.style.transform =
-            "scale(.985)";
-
-        },
-        { passive: true }
-      );
-
-
-      card.addEventListener(
-        "touchend",
-        () => {
-
-          card.style.transform = "";
-
-        },
-        { passive: true }
-      );
 
     });
 
